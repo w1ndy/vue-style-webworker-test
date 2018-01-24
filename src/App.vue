@@ -7,9 +7,19 @@
 
 <script>
 import HelloWorld from './components/HelloWorld'
+import { SOME_CONSTANT } from './assets/test.scss'
+import TestWorker from 'worker-loader!./assets/test.worker.js'
 
 export default {
   name: 'App',
+  mounted () {
+    console.log('The value of the constant is', SOME_CONSTANT)
+  },
+  data () {
+    return {
+      worker: new TestWorker()
+    }
+  },
   components: {
     HelloWorld
   }
